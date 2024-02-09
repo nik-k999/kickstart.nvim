@@ -205,13 +205,13 @@ require('lazy').setup({
     'navarasu/onedark.nvim',
     priority = 1000,
     lazy = false,
-    -- config = function()
-    --   require('onedark').setup {
-    --     -- Set a style preset. 'dark' is default.
-    --     style = 'dark', -- dark, darker, cool, deep, warm, warmer, light
-    --   }
-    --   require('onedark').load()
-    -- end,
+    config = function()
+      require('onedark').setup {
+        -- Set a style preset. 'dark' is default.
+        style = 'dark', -- dark, darker, cool, deep, warm, warmer, light
+      }
+      -- require('onedark').load()
+    end,
   },
 
   {
@@ -601,6 +601,16 @@ local servers = {
   },
   tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
+  tailwindcss = {
+    filetypes = { 'html', 'css', 'scss', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'rust' },
+    tailwindCSS = {
+      experimental = {
+        classRegex = {
+          ".*\\.\\s*?[\"']([^\"'`]*).*?"
+        }
+      }
+    },
+  },
 
   lua_ls = {
     Lua = {
