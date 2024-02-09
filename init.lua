@@ -606,7 +606,8 @@ local servers = {
     tailwindCSS = {
       experimental = {
         classRegex = {
-          ".*\\.\\s*?[\"']([^\"'`]*).*?"
+          ".*\\.\\s*?[\"']([^\"'`]*).*?",
+          "class=[\"']([^\"']*)"
         }
       }
     },
