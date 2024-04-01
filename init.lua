@@ -541,7 +541,26 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
-        -- rust_analyzer = {},
+        rust_analyzer = {
+          ['rust-analyzer'] = {
+            check = {
+              command = 'clippy',
+            },
+          },
+        },
+        tailwindcss = {
+          filetypes = { 'html', 'css', 'scss', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'rust' },
+          tailwindCSS = {
+            experimental = {
+              classRegex = {
+                '.*\\.\\s*?["\']([^"\'`]*).*?',
+                'class=["\']([^"\']*)',
+              },
+            },
+          },
+        },
+        tsserver = {},
+        html = { filetypes = { 'html', 'twig', 'hbs' } },
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -838,7 +857,7 @@ require('lazy').setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  -- require 'kickstart.plugins.debug',
+  require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
 
@@ -847,7 +866,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
@@ -872,3 +891,5 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+require 'custom.set'
+require 'custom.remap'
