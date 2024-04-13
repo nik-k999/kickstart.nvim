@@ -15,3 +15,14 @@ end, { desc = '[G]it [p]u[s]h' })
 vim.keymap.set('n', '<leader>gpu', function()
   vim.cmd.Git 'pull'
 end, { desc = '[G]it [pu]ll' })
+
+-- Missing Telescope
+vim.keymap.set('n', '<leader>sa', function()
+  local builtin = require 'telescope.builtin'
+  builtin.find_files {
+    follow = true,
+    no_ignore = true,
+    hidden = true,
+    file_ignore_patterns = { '.git/', 'node_modules/', 'target/', 'dist/', 'build/', '.DS_Store' },
+  }
+end, { desc = '[s]earch [a]ll files' })
